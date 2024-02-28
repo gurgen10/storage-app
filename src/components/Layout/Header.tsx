@@ -11,6 +11,8 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import {  useLocation } from 'react-router-dom';
+import { Link } from '@mui/material';
 
 const pages = [
   {
@@ -35,6 +37,7 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const  Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  const {pathname} = useLocation()
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -55,8 +58,10 @@ const  Header = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Box  sx={{ display: { xs: 'none', md: 'flex' },flexGrow: 1, mr: 1 }}>
+          <Box sx={{ display: { xs: 'none', md: 'flex' }, flexGrow: 1, mr: 1 }}>
+            <Link href='/'>
             <img alt='PlatAi' src='https://plat.ai/wp-content/themes/platai/assets/images/logo.svg' />
+            </Link>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -88,8 +93,14 @@ const  Header = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page.name} href={page.url} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page.name}</Typography>
+                <MenuItem
+                  sx={{
+                    "&.Mui-selected": {
+                      backgroundColor: "coral"
+                    }
+                  }}    
+                  selected={pathname === page.url} key={page.name} onClick={handleCloseNavMenu}>
+                  <Link underline='none'  sx={{width: '100%'}} href={`${page.url!}`} >{ page.name }</Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -104,7 +115,7 @@ const  Header = () => {
                 href={page.url}
 
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block', textTransform: 'capitalize' }}
+                sx={{ my: 2, color: pathname === page.url ? 'coral' :  'white' , display: 'block', textTransform: 'capitalize' }}
               >
                 {page.name}
               </Button>

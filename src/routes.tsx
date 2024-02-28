@@ -5,14 +5,14 @@ import { LocalStorage } from './pages/LocalStorage';
 import { SessionStorage } from './pages/SessionStorage';
 import { Cookies } from './pages/Cookies';
 import { IndexDB } from './pages/IndexDB';
+import Introduction from './pages/Introduction';
 
 
 const MainRoutes = () => {
   return (
     <MainLayout>
-      <div>sasasas</div>
       <Routes>
-        <Route path="/" element={<LocalStorage />} />
+        <Route path="/" element={<Introduction />} />
         <Route path='/local-storage' element={<LocalStorage />}  />
         <Route path='/session-storage' element={<SessionStorage />} />
         <Route path='/cookies' element={<Cookies />} />
