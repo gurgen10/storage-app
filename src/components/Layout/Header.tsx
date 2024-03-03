@@ -1,18 +1,10 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
+import {Box, Toolbar, AppBar,IconButton, Typography,Button, Tooltip,Menu, MenuItem, Container, Avatar, ToggleButtonGroup, ToggleButton} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import {  useLocation } from 'react-router-dom';
-import { Link } from '@mui/material';
+import {  Link as ReactRouterLink, useLocation } from 'react-router-dom';
+import { ThemeContext } from '../../context';
+import authSelector from '../../redux/slices/userSlice/selector';
+import { useAppSelector } from '../../redux/store';
 
 const pages = [
   {
@@ -32,12 +24,13 @@ const pages = [
     url: '/index-db',
   }
 ];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const  Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-  const {pathname} = useLocation()
+  const { pathname } = useLocation();
+  const theme = React.useContext(ThemeContext);
+  const userDate =  useAppSelector(authSelector.userData)
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -46,22 +39,47 @@ const  Header = () => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (e: React.SyntheticEvent) => {
     setAnchorElNav(null);
   };
+
+  const handleChange = (event: any) => {
+    theme.setTheme(event.target.value);
+    localStorage.setItem('theme', event.target.value)
+
+  }
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  interface ListItemBtnProps {
+    url: string,
+    children: React.ReactElement | string,
+    onClick?: (e: any) => void
+  }
+
+  const ListItemBtn = ({ url, onClick, children }: ListItemBtnProps) => {
+    let listItemProps:  {
+      component: React.ForwardRefExoticComponent<React.RefAttributes<HTMLAnchorElement>> | string;
+      href?: string;
+      target?: "_blank" | "_self" | "_parent" | "_top";
+    } = {
+      component: React.forwardRef((props, ref) => <ReactRouterLink ref={ref} to={url} {...props}  target='_self' />)
+    };
+    return (
+    <Button onClick={onClick} {...listItemProps}>
+      {children}
+    </Button>)
+  }
 
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ display: { xs: 'none', md: 'flex' }, flexGrow: 1, mr: 1 }}>
-            <Link href='/'>
-            <img alt='PlatAi' src='https://plat.ai/wp-content/themes/platai/assets/images/logo.svg' />
-            </Link>
+            <ReactRouterLink  to='/'>
+              <img alt='PlatAi' src='https://plat.ai/wp-content/themes/platai/assets/images/logo.svg' />
+            </ReactRouterLink>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -98,34 +116,36 @@ const  Header = () => {
                     "&.Mui-selected": {
                       backgroundColor: "coral"
                     }
-                  }}    
+                  }}
                   selected={pathname === page.url} key={page.name} onClick={handleCloseNavMenu}>
-                  <Link underline='none'  sx={{width: '100%'}} href={`${page.url!}`} >{ page.name }</Link>
+                  <ListItemBtn url={`${page.url!}`} onClick={handleCloseNavMenu}>{ page.name }</ListItemBtn>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <Box  sx={{ display: { xs: 'flex', md: 'none' },  flexGrow: 1, mr: 1 }}>
-            <img alt='PlatAi' src='https://plat.ai/wp-content/themes/platai/assets/images/logo.svg' />
+          <Box sx={{ display: { xs: 'flex', md: 'none' }, flexGrow: 1, mr: 1 }}>
+            <ReactRouterLink  to='/'>
+              <img alt='PlatAi' src='https://plat.ai/wp-content/themes/platai/assets/images/logo.svg' />
+            </ReactRouterLink>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button
+              <ListItemBtn
                 key={page.name}
-                href={page.url}
-
+                url={page.url}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: pathname === page.url ? 'coral' :  'white' , display: 'block', textTransform: 'capitalize' }}
               >
-                {page.name}
-              </Button>
+                <Typography
+                  sx={{ my: 2, color: pathname === page.url ? 'coral' :  'white' , display: 'block', textTransform: 'capitalize' }}
+                >{page.name}</Typography>
+              </ListItemBtn>
             ))}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Gug" src={require('./gug.jpg')} />
+                <Avatar alt="Gug" src={require(`./${userDate.image || 'no-user.jpg'}`)} />
               </IconButton>
             </Tooltip>
             <Menu
@@ -144,11 +164,18 @@ const  Header = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+              <Typography sx={{px: 2}}>{userDate.name}</Typography>
+              <ToggleButtonGroup
+                sx={{p: 2}}
+                color="primary"
+                value={theme.theme}
+                exclusive
+                onChange={handleChange}
+                aria-label="Platform"
+              >
+                <ToggleButton value="light">Light</ToggleButton>
+                <ToggleButton value="dark">Dark</ToggleButton>
+              </ToggleButtonGroup>
             </Menu>
           </Box>
         </Toolbar>

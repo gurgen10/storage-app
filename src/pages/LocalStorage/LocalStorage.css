@@ -1,0 +1,10 @@
+dt {
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+dd {
+    margin: 0;
+    grid-column-start: 2;
+    color: coral;
+}

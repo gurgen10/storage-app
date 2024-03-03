@@ -12,11 +12,11 @@ const MainRoutes = () => {
   return (
     <MainLayout>
       <Routes>
-        <Route path="/" element={<Introduction />} />
-        <Route path='/local-storage' element={<LocalStorage />}  />
-        <Route path='/session-storage' element={<SessionStorage />} />
-        <Route path='/cookies' element={<Cookies />} />
-        <Route path='/index-db' element={<IndexDB />} />
+        <Route path="/" Component={Introduction} />
+        <Route path='/local-storage' Component={LocalStorage}  />
+        <Route path='/session-storage' Component={SessionStorage} />
+        <Route path='/cookies' Component={Cookies} />
+        <Route path='/index-db' Component={IndexDB} />
       </Routes>
     </MainLayout>
   )
