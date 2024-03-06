@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import { Box, Button, Card, Container } from '@mui/material'
+import { Box, Button, Card, Container } from '@mui/material';
 import StorageOverview from '../../components/StorageOverview';
-import './LocalStorage.css';
 import overview from '../../data/localStorage.json';
+
+import './LocalStorage.css';
 
 interface LocalStorageItem {
   data: { [key: string]: string }[];
@@ -28,6 +29,20 @@ export const LocalStorage = () => {
   }
 
   useEffect(() => {
+    updateLocalStorage();
+
+    return () => {
+      clearInterval(timer.current)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (discountTime <= 0) {
+      updateLocalStorage();
+    }
+  }, [discountTime])
+  
+  const updateLocalStorage = () => {
     const localStorageData = (localStorage.getItem('discount'));
 
     if (localStorageData) {
@@ -36,11 +51,7 @@ export const LocalStorage = () => {
         localStorage.removeItem('discount')
       }
     }
-
-    return () => {
-      clearInterval(timer.current)
-    }
-  }, [])
+  }
   
   const updateCount = () => {
     setDiscountTime(10000)
@@ -61,10 +72,7 @@ export const LocalStorage = () => {
       <Card sx={{ m: 5 }}>
         <Box  sx={{ mb: 5, p: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Button variant='outlined' color='error' onClick={() => localStorage.clear()}>Clear Local Storage</Button>
-          <Button variant='outlined' color='info' onClick={handleSetDiscount}>{`Set Discount Value (${discountTime} seconds)`}</Button>
-        </Box>
-        <Box>
-          <Button onClick={handleSetDiscount}>Add discount</Button>
+          <Button variant='outlined' color='info' onClick={handleSetDiscount}>{`Set Discount Value (${discountTime / 1000} seconds)`}</Button>
         </Box>
         <StorageOverview overview={overview} />
       </Card>

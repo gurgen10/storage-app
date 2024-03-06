@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState, useContext, MouseEvent, forwardRef, ReactElement, RefAttributes, ForwardRefExoticComponent } from 'react';
 import {Box, Toolbar, AppBar,IconButton, Typography,Button, Tooltip,Menu, MenuItem, Container, Avatar, ToggleButtonGroup, ToggleButton} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import {  Link as ReactRouterLink, useLocation } from 'react-router-dom';
@@ -26,20 +26,20 @@ const pages = [
 ];
 
 const  Header = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
   const { pathname } = useLocation();
-  const theme = React.useContext(ThemeContext);
+  const theme = useContext(ThemeContext);
   const userDate =  useAppSelector(authSelector.userData)
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOpenNavMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOpenUserMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = (e: React.SyntheticEvent) => {
+  const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
@@ -54,17 +54,17 @@ const  Header = () => {
   };
   interface ListItemBtnProps {
     url: string,
-    children: React.ReactElement | string,
+    children: ReactElement | string,
     onClick?: (e: any) => void
   }
 
   const ListItemBtn = ({ url, onClick, children }: ListItemBtnProps) => {
     let listItemProps:  {
-      component: React.ForwardRefExoticComponent<React.RefAttributes<HTMLAnchorElement>> | string;
+      component: ForwardRefExoticComponent<RefAttributes<HTMLAnchorElement>> | string;
       href?: string;
       target?: "_blank" | "_self" | "_parent" | "_top";
     } = {
-      component: React.forwardRef((props, ref) => <ReactRouterLink ref={ref} to={url} {...props}  target='_self' />)
+      component: forwardRef((props, ref) => <ReactRouterLink ref={ref} to={url} {...props}  target='_self' />)
     };
     return (
     <Button onClick={onClick} {...listItemProps}>

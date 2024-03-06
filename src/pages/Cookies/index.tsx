@@ -1,5 +1,6 @@
-import { Card, Container } from '@mui/material'
-import StorageOverview from '../../components/StorageOverview'
+import { Card, Container } from '@mui/material';
+import StorageOverview from '../../components/StorageOverview';
+
 import './Cookies.css';
 
 import overview from '../../data/cookies.json'

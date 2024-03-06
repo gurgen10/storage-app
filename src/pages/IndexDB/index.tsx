@@ -1,5 +1,5 @@
-import { Card, Container } from '@mui/material'
-import StorageOverview from '../../components/StorageOverview'
+import { Card, Container } from '@mui/material';
+import StorageOverview from '../../components/StorageOverview';
 import overview from '../../data/indexDB.json';
 
 import './IndexDB.css';

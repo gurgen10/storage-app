@@ -1,11 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 import { Box, Button, Card, Container, InputLabel, TextField } from '@mui/material';
 import StorageOverview from '../../components/StorageOverview';
 import { dispatch, useAppSelector } from '../../redux/store';
 import userSlice from '../../redux/slices/userSlice/slice';
 import authSelector from '../../redux/slices/userSlice/selector';
-import './SessionStorage.css';
 import overview from '../../data/sessionStorage.json';
+
+import './SessionStorage.css';
 
 export const SessionStorage = () => {
   const userData = useAppSelector(authSelector.userData)
