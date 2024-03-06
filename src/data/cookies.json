@@ -1,0 +1,59 @@
+{
+  "title": "Cookies",
+  "about": "In HTML documents, cookies are small pieces of data that websites store on a user's device. They are commonly used for various purposes such as session management, personalization, tracking, and authentication, ut it's crucial to use them responsibly and in compliance with privacy regulations.",
+  "keyPoints": [
+    {
+      "title": "Storage:",
+      "content": " Cookies are stored on the user's device, typically in the browser's cookie storage. Each cookie is associated with a specific website or domain."
+    },
+    {
+      "title": "Size Limit:",
+      "content": "Different web browsers impose limits on the size of individual cookies. As of my last update, most browsers have a limit of around 4096 bytes (4 KB) per cookie. This limit is imposed for security and performance reasons."
+    },
+    {
+      "title": "Total Limit:",
+      "content": "Browsers also have limits on the total number of cookies that can be stored per domain or per website. This limit varies between browsers but is typically in the range of a few hundred to a few thousand cookies."
+    },
+    {
+      "title": "Domain Limitations:",
+      "content": "Cookies are typically scoped to a specific domain. This means that cookies set by one domain cannot be accessed by another domain. Each domain has its own set of cookies, and the limits apply to each domain separately."
+    },
+    {
+      "title": "Performance Impact:",
+      "content": "Storing large amounts of data in cookies can impact website performance, as cookies are sent with every HTTP request to the server. Therefore, it's generally recommended to keep the size of cookies as small as possible and to avoid storing large amounts of data in cookies."
+    },
+    {
+      "title": "Domain Limitations:",
+      "content": "Cookies are typically scoped to a specific domain. This means that cookies set by one domain cannot be accessed by another domain. Each domain has its own set of cookies, and the limits apply to each domain separately."
+    },
+    {
+      "title": "Purpose:",
+      "content": "Cookies can serve various purposes, including maintaining user sessions (keeping users logged in), remembering user preferences or settings, tracking user behavior for analytics, and targeting advertisements."
+    },
+    {
+      "title": "HTTP Headers:",
+      "content": "Cookies are typically set and managed using HTTP headers. The Set-Cookie header is used to create or update cookies, while the Cookie header is used to send cookies from the browser to the server with each HTTP request."
+    },
+    {
+      "title": "JavaScript Access:",
+      "content": "Cookies can be accessed and manipulated using JavaScript through the document.cookie property. However, for security reasons, certain attributes such as HttpOnly prevent cookies from being accessed via JavaScript."
+    },
+    {
+      "title": "Privacy Concerns:",
+      "content": "While cookies are widely used for legitimate purposes, they can also raise privacy concerns, particularly when used for tracking user behavior across different websites without user consent. Regulations like the GDPR (General Data Protection Regulation) in the EU impose restrictions on the use of cookies and require websites to obtain user consent for non-essential cookies."
+    },
+    {
+      "title": "Structure:",
+      "content": "A cookie consists of a name-value pair along with optional attributes such as expiration time, domain, and path. For example: <strong>Set-Cookie: name=value; expires=date; domain=domain; path=path; secure; HttpOnly</strong>.",
+      "list": [
+        "name=value: The data stored in the cookie.",
+        "expires: Specifies the expiration date and time for the cookie.",
+        "domain: Specifies the domain to which the cookie belongs.",
+        "path: Specifies the URL path for which the cookie is valid.",
+        "secure: Indicates that the cookie should only be sent over secure (HTTPS) connections.",
+        "HttpOnly: Specifies that the cookie cannot be accessed via client-side scripts (JavaScript), enhancing security."
+      ]
+    }
+
+  ]
+}

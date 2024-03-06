@@ -1,0 +1,38 @@
+{
+  "title": "IndexDB",
+  "about": "IndexedDB is a low-level API for client-side storage of significant amounts of structured data, including files/blobs. It's a part of the HTML5 specification and is supported by most modern web browsers. IndexedDB allows you to create databases on the client side, query them, and perform transactions. IndexedDB is particularly useful for web applications that need to store significant amounts of data locally and operate offline or with intermittent network connectivity. It provides a robust and efficient way to manage client-side data storage. However, it requires a good understanding of asynchronous programming and database concepts to use effectively.",
+   "keyPoints" :[
+    {
+      "title": "IndexedDB Database:",
+      "content": "You can create multiple databases within a single web application. Each database can have multiple object stores, which act like tables in a relational database."
+    },
+    {
+      "title": "Transactions:",
+      "content": "IndexedDB operates within transactions, which ensure the integrity and consistency of data. All read and write operations are performed within a transaction."
+    },
+    {
+      "title": "Asynchronous Operations:",
+      "content": "Most operations in IndexedDB are asynchronous, meaning you'll use callbacks or promises to handle the results of operations like opening a database, adding or retrieving data."
+    },
+    {
+      "title": "Support for Indexes:",
+      "content": "IndexedDB allows you to create indexes on properties of objects stored in object stores. This allows for efficient querying of data based on specific criteria."
+    },
+    {
+      "title": "Blob Support:",
+      "content": "IndexedDB supports storing blobs (binary large objects), which enables storing binary data such as images or files directly within the database."
+    },
+    {
+      "title": "Cross-Origin Access:",
+      "content": "IndexedDB follows the same-origin policy. This means that a web page can only access IndexedDB databases that originate from the same domain unless proper permissions are set."
+    },
+    {
+      "title": "Error Handling:",
+      "content": " IndexedDB provides mechanisms for handling errors that may occur during database operations, such as version conflicts or quota limitations."
+    },
+    {
+      "title": "Storage Limitations:",
+      "content": "The amount of data you can store using IndexedDB varies depending on the browser and user settings. Browsers typically impose limits to prevent abuse of local storage resources."
+    }
+  ]
+}

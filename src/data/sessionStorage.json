@@ -1,0 +1,36 @@
+{
+  "title": "Session Storage",
+  "about": "Session Storage is a feature provided by modern web browsers as part of the Web Storage API. It allows developers to store key-value pairs locally within the user's browser for the duration of that browser session. This means that the data stored in sessionStorage persists only as long as the browser window or tab is open. Once the user closes the tab or window, the data is cleared and no longer accessible.",
+   "keyPoints" :[
+    {
+      "title": "Scope:",
+      "content": "Data stored in sessionStorage is specific to the current browser tab or window. If you open a new tab or window, it will have its own separate sessionStorage."
+    },
+    {
+      "title": "Storage Limit:",
+      "content": "The amount of data that can be stored in sessionStorage varies between browsers, but it is typically around 5-10MB per origin (i.e., per domain)."
+    },
+    {
+      "title": "Lifetime:",
+      "content": "As mentioned earlier, sessionStorage data persists only for the duration of the browser session. If the user closes the tab or window, the data is lost."
+    },
+    {
+      "title": "Data Format:",
+      "content": "Session Storage stores data in the form of key-value pairs. Both the keys and values must be strings."
+    },
+    {
+      "title": "Security:",
+      "content": "Data stored in sessionStorage is local to the user's browser and cannot be accessed by other websites. However, it's important to remember that it is not secure storage. Sensitive data should not be stored in sessionStorage without proper encryption."
+    },
+    {
+      "title": "JavaScript API",
+      "content": "Here is all methods to read, write, remove and clear Session Storage data.",
+      "list": [
+        "sessionStorage.setItem('[key]', '[value]')",
+        "sessionStorage.getItem('[key]')",
+        "sessionStorage.removeItem('[key]')",
+        "sessionStorage.clear()"
+      ]
+    }
+  ]
+}

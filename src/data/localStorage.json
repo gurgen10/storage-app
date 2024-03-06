@@ -1,0 +1,40 @@
+{
+  "title": "Local Storage",
+  "about": "Local storage is a feature of web browsers that allows web applications to store data locally within the user's browser. This data persists even after the browser window is closed or the user navigates away from the page. It's useful for storing small amounts of data that you want to access across different sessions or pages of your web application.",
+   "keyPoints" :[
+    {
+      "title": "Storage Object:",
+      "content": "In JavaScript, the localStorage object is used to access the local storage area of the browser. It provides a simple key-value storage mechanism."
+    },
+    {
+      "title": "Data Storage:",
+      "content": "Data stored in localStorage is associated with the origin of the web page. Each origin (combination of protocol, host, and port) has its own separate storage area. This means that data stored by a web page cannot be accessed by another web page from a different origin."
+    },
+    {
+      "title": "Data Persistence:",
+      "content": "Unlike session storage, which is cleared when the browser session ends, data stored in localStorage persists indefinitely until explicitly removed by the web application or cleared by the user through browser settings."
+    },
+    {
+      "title": "Data Format:",
+      "content": "localStorage stores data as strings. If you want to store complex data types such as objects or arrays, you need to serialize them to strings before storing and deserialize them when retrieving."
+    },
+    {
+      "title": "Limitations:",
+      "content": "While localStorage provides a convenient way to store small amounts of data locally, it has limitations. Most browsers impose a storage limit of around 5-10 MB per origin. Exceeding this limit may cause the browser to prompt the user for permission to increase storage or to fail silently, depending on the browser."
+    },
+    {
+      "title": "Security:",
+      "content": "Data stored in localStorage is accessible to JavaScript running on the same origin. However, it's important to be cautious when storing sensitive information in localStorage, as it can be accessed by other scripts running on the same page. Avoid storing sensitive data such as passwords or authentication tokens in localStorage."
+    },
+    {
+      "title": "Methods:",
+      "content": "These are all methods to read, write, delete and clear Local Storage data.",
+      "list": [
+        "localStorage.setItem('[key]', '[value]')",
+        "localStorage.getItem('[key]')",
+        "localStorage.removeItem('[key]')",
+        "localStorage.clear()"
+      ]
+    }
+  ]
+}
