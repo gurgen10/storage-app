@@ -23,13 +23,14 @@ const StorageOverview = ({overview}: StorageOverviewProps) => (
       <p>
         {overview.about}
       </p>
-      {overview.keyPoints.map((keyPoint) => (<dl>
+      {overview.keyPoints.map((keyPoint) => (
+      <dl key={keyPoint.title}>
         <dt>{ keyPoint.title}</dt>
         <dd>{keyPoint.content}</dd>
         <dd>
           <ul>
             {keyPoint.list && keyPoint.list.map((item) => (
-              <li>{ item }</li>
+              <li key={item}>{ item }</li>
              ))}
           </ul>
         </dd>

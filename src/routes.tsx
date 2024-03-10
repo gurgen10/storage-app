@@ -6,6 +6,7 @@ import { SessionStorage } from './pages/SessionStorage';
 import { Cookies } from './pages/Cookies';
 import { IndexDB } from './pages/IndexDB';
 import Introduction from './pages/Introduction';
+import IndexDBExample from './pages/IndexDB/IndexDBExample';
 
 
 const MainRoutes = () => {
@@ -17,6 +18,7 @@ const MainRoutes = () => {
         <Route path='/session-storage' Component={SessionStorage} />
         <Route path='/cookies' Component={Cookies} />
         <Route path='/index-db' Component={IndexDB} />
+        <Route path='/index-db/example' Component={IndexDBExample} />
       </Routes>
     </MainLayout>
   )
