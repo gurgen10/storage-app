@@ -8,12 +8,12 @@ import { db } from "./db";
    const [status, setStatus] = useState('');
    const containerRef = useRef<HTMLElement>(null);
 
-  async function addFriend() {
+  async function addUser() {
     try {
       // Add the new friend!
       const id = await db.users.add({
         name,
-        age
+        age,
       });
 
       setStatus(`User ${name} successfully added. Got id ${id}`);
@@ -62,7 +62,7 @@ import { db } from "./db";
         </Box>
       </Grid>
       <Box width='100%' textAlign='center'>
-        <Button variant="contained" color="primary" onClick={addFriend}>Add</Button>
+        <Button variant="contained" color="primary" onClick={addUser}>Add</Button>
       </Box>
     </Box>
   )
