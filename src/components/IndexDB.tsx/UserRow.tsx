@@ -4,7 +4,7 @@ import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
 import EditIcon from '@mui/icons-material/Edit';
 import SaveIcon from '@mui/icons-material/Save';
 import CancelIcon from '@mui/icons-material/Close';
-import { User } from "./db";
+import { User } from "../../db";
 
 interface UserRowProps {
   user: User;

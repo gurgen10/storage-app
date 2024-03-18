@@ -23,10 +23,6 @@
       "content": "Storing large amounts of data in cookies can impact website performance, as cookies are sent with every HTTP request to the server. Therefore, it's generally recommended to keep the size of cookies as small as possible and to avoid storing large amounts of data in cookies."
     },
     {
-      "title": "Domain Limitations:",
-      "content": "Cookies are typically scoped to a specific domain. This means that cookies set by one domain cannot be accessed by another domain. Each domain has its own set of cookies, and the limits apply to each domain separately."
-    },
-    {
       "title": "Purpose:",
       "content": "Cookies can serve various purposes, including maintaining user sessions (keeping users logged in), remembering user preferences or settings, tracking user behavior for analytics, and targeting advertisements."
     },
@@ -47,11 +43,12 @@
       "content": "A cookie consists of a name-value pair along with optional attributes such as expiration time, domain, and path. For example: <strong>Set-Cookie: name=value; expires=date; domain=domain; path=path; secure; HttpOnly</strong>.",
       "list": [
         "name=value: The data stored in the cookie.",
-        "expires: Specifies the expiration date and time for the cookie.",
+        "expires/max-age: Specifies the expiration date and time for the cookie or number value in secondes in case of max-age.",
         "domain: Specifies the domain to which the cookie belongs.",
         "path: Specifies the URL path for which the cookie is valid.",
         "secure: Indicates that the cookie should only be sent over secure (HTTPS) connections.",
-        "HttpOnly: Specifies that the cookie cannot be accessed via client-side scripts (JavaScript), enhancing security."
+        "HttpOnly: Specifies that the cookie cannot be accessed via client-side scripts (JavaScript), enhancing security.",
+        "SameSite: This field controls when cookies are sent in cross-site requests. It can have three values: Strict, Lax, or None. Setting SameSite=Strict means the cookie is only sent in a first-party context. SameSite=Lax allows cookies to be sent in cross-origin requests that are top-level navigations, such as clicking on a link. SameSite=None allows cookies to be sent in all cross-origin requests."
       ]
     }
 

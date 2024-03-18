@@ -1,15 +1,15 @@
 import { Card, Container } from '@mui/material';
 import StorageOverview from '../../components/StorageOverview';
-
-import './Cookies.css';
+import { CookieView } from '../../components/Cookies/CookieView';
 
 import overview from '../../data/cookies.json'
+import './Cookies.css';
 
-export const Cookies = () => {
-  return (
-    <Container>
-      <Card sx={{ m: 5 }}>
-        <StorageOverview overview={overview} />
-      </Card>
-    </Container>)
-}
+export const Cookies = () => (
+  <Container>
+    <Card sx={{ m: 5 }}>
+      <StorageOverview overview={overview} />
+    </Card>
+    <CookieView />
+  </Container>
+)

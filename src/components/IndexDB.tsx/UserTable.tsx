@@ -3,7 +3,7 @@ import { Box, IconButton, InputBase,Paper,TableContainer, Table, TableBody,Table
 import SearchIcon from '@mui/icons-material/Search';
 import { UserRow } from './UserRow';
 import { useLiveQuery } from 'dexie-react-hooks';
-import { User, db } from './db';
+import { User, db } from '../../db';
 
 export default function UserTable() {
   const [name, setName] = useState('');

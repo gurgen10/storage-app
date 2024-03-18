@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-
 import MainLayout from "./components/Layout"
 import { LocalStorage } from './pages/LocalStorage';
 import { SessionStorage } from './pages/SessionStorage';
@@ -7,7 +6,6 @@ import { Cookies } from './pages/Cookies';
 import { IndexDB } from './pages/IndexDB';
 import Introduction from './pages/Introduction';
 import IndexDBExample from './pages/IndexDB/IndexDBExample';
-
 
 const MainRoutes = () => {
   return (

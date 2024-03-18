@@ -1,6 +1,6 @@
-import { Alert, Box, Button, Grid, InputLabel, Slide, TextField, Typography } from "@mui/material";
+import { Alert, Box, Button, Grid, InputLabel, Slide, TextField } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
-import { db } from "./db";
+import { db } from "../../db";
 
  const AddUserForm = ({ defaultAge } = { defaultAge: 21 }) => {
   const [name, setName] = useState('');
@@ -25,15 +25,10 @@ import { db } from "./db";
    }
    
    useEffect(() => {
-     const timeOutId = setTimeout(() => {
+     setTimeout(() => {
        setStatus('')
-        clearTimeout(timeOutId)
      }, 3000)
 
-     return () => {
-       clearTimeout(timeOutId)
-     }
-     
    }, [status])
 
   return (

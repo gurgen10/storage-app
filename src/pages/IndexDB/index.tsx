@@ -1,9 +1,9 @@
 import { Box, Card, Container, Typography } from '@mui/material';
+import { Link as BrouserLink } from 'react-router-dom';
 import StorageOverview from '../../components/StorageOverview';
 import overview from '../../data/indexDB.json';
 
 import './IndexDB.css';
-import { Link as BrouserLink } from 'react-router-dom';
 
 export const IndexDB = () => {
   return (
