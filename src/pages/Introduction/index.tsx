@@ -3,24 +3,24 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { TreeView } from '@mui/x-tree-view/TreeView';
 import { TreeItem } from '@mui/x-tree-view/TreeItem';
+import CookiesTable from '../../components/Cookies/CookiesTable';
+
 import './Introduction.css';
 
 const Introduction = () => {
   return (
-    <Box sx={{ minHeight: 180, flexGrow: 1, mx: 'auto', mt: '50px' }}>
+    <Box sx={{ minHeight: 180, p:5, flexGrow: 1, mx: 'auto', mt: '50px' }}>
       <Typography component='h1' sx={{mb: '40px', fontSize: '50px', color: 'coral', textAlign: 'center'}}>
         Introduction
       </Typography>
       <Card sx={{p: '20px', fontSize: '20px'}} >
         <TreeView
           sx={{
-            
             color: 'Highlight',
             '& .MuiTreeItem-label': {
               fontSize: '25px !important',
               fontWeight: '700 !important'
             },
-           
             '& .MuiTreeItem-group .MuiTreeItem-label': {
               fontSize: '22px !important',
               color: 'coral',
@@ -36,21 +36,18 @@ const Introduction = () => {
           <TreeItem nodeId="1.2" label="Usage" />
           <TreeItem nodeId="1.3" label="About of local storage" />
         </TreeItem>
-          
         <TreeItem nodeId="2" label="Session Storage">
           <TreeItem nodeId="2.1" label="What is session storage" />
           <TreeItem nodeId="2.2" label="Usage" />
           <TreeItem nodeId="2.3" label="About of session storage" />
           <TreeItem nodeId="2.4" label="Comparison  with local storage" />
         </TreeItem>
-          
         <TreeItem nodeId="3" label="Cookies">
           <TreeItem nodeId="3.1" label="What is cookies storage" />
           <TreeItem nodeId="3.2" label="Usage" />
           <TreeItem nodeId="3.3" label="About of cookies storage" />
           <TreeItem nodeId="3.4" label="Comparison  with local storage and seesion storage" />
         </TreeItem>
-          
         <TreeItem nodeId="4" label="IndexDb">
           <TreeItem nodeId="4.1" label="What is IndexDb" />
           <TreeItem nodeId="4.2" label="Usage" />
@@ -59,6 +56,8 @@ const Introduction = () => {
         </TreeItem>
       </TreeView>
       </Card>
+      <Box component='h2'>Cookies</Box>
+      <CookiesTable />
     </Box>
   )
 }

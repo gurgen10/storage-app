@@ -4,10 +4,10 @@ import CookiesTable from '../../components/Cookies/CookiesTable';
 
 export const CookieView = () => (
   <Box>
-    <Card>
+    <Card sx={{p:2}}>
       <CookieForm />
     </Card>
-    <Card>
+    <Card  sx={{p:2}}>
       <CookiesTable />
     </Card>
   </Box>

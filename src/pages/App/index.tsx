@@ -2,13 +2,13 @@ import { useEffect, useState  } from 'react';
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import MainRoutes  from '../../routes';
-import './App.css';
 import { ThemeContext } from '../../context';
 
+import './App.css';
 
 function App() {
   const [theme, setTheme] = useState("light");
-  const themeDefault = { theme, setTheme};
+  const themeDefault = { theme, setTheme };
   const [toggleDarkMode, setToggleDarkMode] = useState(true);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ function App() {
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
         <MainRoutes />
-        </ThemeProvider>
+      </ThemeProvider>
     </ThemeContext.Provider>
   );
 }

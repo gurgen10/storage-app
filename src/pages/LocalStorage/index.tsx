@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Box, Button, Card, Container, Typography } from '@mui/material';
 import StorageOverview from '../../components/StorageOverview';
 import overview from '../../data/localStorage.json';
-import { CookieView } from '../../components/Cookies/CookieView';
+import CookiesTable from '../../components/Cookies/CookiesTable';
 
 import './LocalStorage.css';
 
@@ -32,7 +32,6 @@ export const LocalStorage = () => {
   }
 
   useEffect(() => {
-
     updateLocalStorage();
 
     return () => {
@@ -85,6 +84,7 @@ export const LocalStorage = () => {
         </Box>
         <StorageOverview overview={overview} />
       </Card>
-      <CookieView />
+      <Box component='h2'>Cookies</Box>
+      <CookiesTable />
     </Container>)
 }
