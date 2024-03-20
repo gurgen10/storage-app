@@ -27,10 +27,10 @@ export function UserRow({ user,selectedName, setSelectedName,selectedAge, setSel
         </TableCell>
         {isEditable ?
         <>
-          <TableCell align="right"><TextField onChange={(event) => setSelectedName(event.target.value)} value={selectedName} /></TableCell>
-            <TableCell align="right"><TextField type='number' onChange={(event) => setSelectedAge(+event.target.value)} value={selectedAge} /></TableCell>
-              <TableCell align="right">
-              <Button color='success' onClick={() => { setIsEditable(false); updateUser(user)}}>
+          <TableCell align="right"><TextField variant="standard" size="small"  onChange={(event) => setSelectedName(event.target.value)} value={selectedName} /></TableCell>
+          <TableCell align="right"><TextField variant="standard" size="small" type='number' onChange={(event) => setSelectedAge(+event.target.value)} value={selectedAge} /></TableCell>
+          <TableCell align="right">
+            <Button color='success' onClick={() => { setIsEditable(false); updateUser(user)}}>
               <SaveIcon />
             </Button>
             <Button color='warning' onClick={() => setIsEditable(false)}>
@@ -53,7 +53,7 @@ export function UserRow({ user,selectedName, setSelectedName,selectedAge, setSel
               <DeleteForeverRoundedIcon />
             </Button>
           </TableCell>
-            </>}
+        </>}
 
       </TableRow>
   </ClickAwayListener>)

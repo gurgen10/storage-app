@@ -1,5 +1,5 @@
 import{ useState } from 'react';
-import { Box, IconButton, InputBase,Paper,TableContainer, Table, TableBody,TableHead,TableRow, TableCell } from '@mui/material';
+import { Box, IconButton, InputBase,Paper,TableContainer, Table, TableBody,TableHead,TableRow, TableCell, Stack, Alert } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { UserRow } from './UserRow';
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -54,21 +54,33 @@ export default function UserTable() {
               <TableCell align="right">Actions</TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
-            {users?.map((user) => (
-              <UserRow
-                key={user.id}
-                deleteUser={deleteUser}
-                updateUser={updateUser}
-                selectedName={selectedName}
-                selectedAge={selectedAge}
-                setSelectedName={setSelectedName}
-                setSelectedAge={setSelectedAge}
-                user={user}
-              />
-            ))}
-          </TableBody>
+          { users.length === 0 ?
+            <TableBody>
+              <TableRow>
+                <TableCell colSpan={5}>
+                  <Stack sx={{ width: '100%' }} spacing={2}>
+                    <Alert severity="info">No Data !</Alert>
+                  </Stack>
+                </TableCell>
+              </TableRow>
+            </TableBody>
+            :
+            <TableBody>
+              {users?.map((user) => (
+                <UserRow
+                  key={user.id}
+                  deleteUser={deleteUser}
+                  updateUser={updateUser}
+                  selectedName={selectedName}
+                  selectedAge={selectedAge}
+                  setSelectedName={setSelectedName}
+                  setSelectedAge={setSelectedAge}
+                  user={user}
+                />
+              ))}
+            </TableBody>}
         </Table>
+        
       </TableContainer>
     </>
   );
