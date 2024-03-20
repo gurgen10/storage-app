@@ -18,6 +18,11 @@ export const IndexDB = () => {
           </li>
           <li>
             <Box>
+              <Typography component='a' sx={{textDecoration: 'none'}} href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Basic_Terminology" target="_blank">IndexedDB key characteristics and basic terminology</Typography>
+            </Box>
+          </li>
+          <li>
+            <Box>
               <Typography component='a' sx={{textDecoration: 'none'}} href="https://developer.mozilla.org/en-US/docs/Web/API/indexedDB" target="_blank">IndexedDB global property</Typography>
             </Box>
           </li>
@@ -28,7 +33,7 @@ export const IndexDB = () => {
           </li>
           <li>
             <Box>
-              <Typography component='a' sx={{textDecoration: 'none'}} href="https://dexie.org/docs/Tutorial/Getting-started" target="_blank">Dexi js</Typography>
+              <Typography component='a' sx={{textDecoration: 'none'}} href="https://dexie.org/docs/Tutorial/Getting-started" target="_blank">Dexi.js</Typography>
             </Box>
           </li>
         </ol>
