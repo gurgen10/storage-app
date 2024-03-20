@@ -3,9 +3,9 @@ import MainLayout from "./components/Layout"
 import { LocalStorage } from './pages/LocalStorage';
 import { SessionStorage } from './pages/SessionStorage';
 import { Cookies } from './pages/Cookies';
-import { IndexDB } from './pages/IndexDB';
+import { IndexDB } from './pages/IndexedDB';
 import Introduction from './pages/Introduction';
-import IndexDBExample from './pages/IndexDB/IndexDBExample';
+import IndexedDBExample from './pages/IndexedDB/IndexedDBExample';
 
 function NoMatch() {
   let location = useLocation();
@@ -28,8 +28,8 @@ const MainRoutes = () => {
         <Route path='/local-storage' Component={LocalStorage}  />
         <Route path='/session-storage' Component={SessionStorage} />
         <Route path='/cookies' Component={Cookies} />
-        <Route path='/index-db' Component={IndexDB} />
-        <Route path='/index-db/example' Component={IndexDBExample} />
+        <Route path='/indexed-db' Component={IndexDB} />
+        <Route path='/indexed-db/example' Component={IndexedDBExample} />
         <Route path='*' Component={NoMatch} />
       </Routes>
     </MainLayout>

@@ -20,8 +20,8 @@ const pages = [
     url: '/cookies',
   },
   {
-    name: 'IndexDB',
-    url: '/index-db',
+    name: 'IndexedDB',
+    url: '/indexed-db',
   }
 ];
 

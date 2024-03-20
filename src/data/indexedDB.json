@@ -1,5 +1,5 @@
 {
-  "title": "IndexDB",
+  "title": "IndexedDB",
   "about": "IndexedDB is a low-level API for client-side storage of significant amounts of structured data, including files/blobs. It's a part of the HTML5 specification and is supported by most modern web browsers. IndexedDB allows you to create databases on the client side, query them, and perform transactions. IndexedDB is particularly useful for web applications that need to store significant amounts of data locally and operate offline or with intermittent network connectivity. It provides a robust and efficient way to manage client-side data storage. However, it requires a good understanding of asynchronous programming and database concepts to use effectively.",
    "keyPoints" :[
     {
