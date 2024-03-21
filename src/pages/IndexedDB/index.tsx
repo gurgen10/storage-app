@@ -5,7 +5,7 @@ import overview from '../../data/indexedDB.json';
 
 import './IndexedDB.css';
 
-export const IndexDB = () => {
+export const IndexedDB = () => {
   return (
     <Container>
       <Card sx={{ m: 5, p: 5 }}>

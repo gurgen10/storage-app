@@ -1,6 +1,6 @@
 import { Card, Container, Paper } from "@mui/material";
-import AddUserForm from "../../components/IndexDB.tsx/AddUserForm";
-import UserTable from "../../components/IndexDB.tsx/UserTable";
+import AddUserForm from "../../components/IndexedDB/AddUserForm";
+import UserTable from "../../components/IndexedDB/UserTable";
 
 const IndexDBExample = () => (
   <Container component={Paper}>
