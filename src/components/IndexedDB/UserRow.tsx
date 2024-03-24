@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, ClickAwayListener, TableCell, TableRow, TextField } from "@mui/material";
+import { Box, Button, ClickAwayListener, TableCell, TableRow, TextField } from "@mui/material";
 import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
 import EditIcon from '@mui/icons-material/Edit';
 import SaveIcon from '@mui/icons-material/Save';
@@ -27,8 +27,8 @@ export function UserRow({ user,selectedName, setSelectedName,selectedAge, setSel
         </TableCell>
         {isEditable ?
         <>
-          <TableCell align="right"><TextField variant="standard" size="small"  onChange={(event) => setSelectedName(event.target.value)} value={selectedName} /></TableCell>
-          <TableCell align="right"><TextField variant="standard" size="small" type='number' onChange={(event) => setSelectedAge(+event.target.value)} value={selectedAge} /></TableCell>
+          <TableCell align="left" sx={{minWidth: '250px'}}><TextField variant="standard" size="small"  onChange={(event) => setSelectedName(event.target.value)} value={selectedName} /></TableCell>
+          <TableCell align="right"  sx={{minWidth: '250px'}}><TextField variant="standard" size="small" type='number' onChange={(event) => setSelectedAge(+event.target.value)} value={selectedAge} /></TableCell>
           <TableCell align="right">
             <Button color='success' onClick={() => { setIsEditable(false); updateUser(user)}}>
               <SaveIcon />
@@ -39,8 +39,8 @@ export function UserRow({ user,selectedName, setSelectedName,selectedAge, setSel
           </TableCell>
         </> :
         <>
-          <TableCell align="right">{user.name}</TableCell>
-          <TableCell align="right">{user.age}</TableCell>
+          <TableCell align="left"  sx={{minWidth: '250px'}}><Box>{user.name}</Box></TableCell>
+          <TableCell align="right"  sx={{minWidth: '250px'}}><Box>{user.age}</Box></TableCell>
           <TableCell align="right">
               <Button color='primary' onClick={() => {
                 setIsEditable(true)

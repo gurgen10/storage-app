@@ -49,7 +49,7 @@ export default function UserTable() {
           <TableHead>
             <TableRow>
               <TableCell>ID</TableCell>
-              <TableCell align="right">Name</TableCell>
+              <TableCell align="left">Name</TableCell>
               <TableCell align="right">Age&nbsp;(year)</TableCell>
               <TableCell align="right">Actions</TableCell>
             </TableRow>
