@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Paper, TableContainer, Table, TableBody, TableHead, TableRow, TableCell } from '@mui/material';
+import { Paper, TableContainer, Table, TableBody, TableHead, TableRow, TableCell, Button, Box } from '@mui/material';
 
 interface Cookie {
   name: string;
@@ -23,8 +23,15 @@ export default function CookiesTable() {
     getCookies()
   }, [])
 
+  const updateCookies = () => {
+    window.location.reload()
+  }
+
   return (
-    <TableContainer component={Paper} sx={{maxHeight: '400px', width: '100%',}}>
+    <TableContainer component={Paper} sx={{ width: '100%', p: 3 }}>
+      <Box sx={{ textAlign: 'right'}}>
+        <Button variant='outlined' onClick={updateCookies}>Update Cookies</Button>
+      </Box>
       <Table  size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>

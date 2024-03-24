@@ -40,7 +40,7 @@
     },
     {
       "title": "Structure:",
-      "content": "A cookie consists of a name-value pair along with optional attributes such as expiration time, domain, and path. For example: <strong>Set-Cookie: name=value; expires=date; domain=domain; path=path; secure; HttpOnly</strong>.",
+      "content": "A cookie consists of a name-value pair along with optional attributes such as expiration time, domain, and path. For example: Set-Cookie: name=value; expires=date; domain=domain; path=path; secure; HttpOnly.",
       "list": [
         "name=value: The data stored in the cookie.",
         "expires/max-age: Specifies the expiration date and time for the cookie or number value in secondes in case of max-age.",
